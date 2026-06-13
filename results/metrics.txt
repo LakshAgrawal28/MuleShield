@@ -1,0 +1,44 @@
+=======================================================
+  DATASET PROFILE
+=======================================================
+Total accounts   : 9,082
+Raw features     : 3,925
+Leaky features   : 782 (dropped)
+NaN-only features: 63  (dropped)
+Final features   : 3,078
+Mule accounts    : 81  (0.89%)
+Train / Val split: 7265 / 1817 (stratified)
+
+=======================================================
+  MODEL A: XGBoost — 15 Anchor Features
+=======================================================
+              precision    recall  f1-score   support
+
+       Legit       1.00      0.91      0.95      1801
+        Mule       0.06      0.69      0.11        16
+
+    accuracy                           0.90      1817
+   macro avg       0.53      0.80      0.53      1817
+weighted avg       0.99      0.90      0.94      1817
+ROC AUC : 0.91973
+PR  AUC : 0.42248
+Mule score range  : [0.2596, 0.8359]
+Legit score range : [0.0431, 0.8091]
+
+=======================================================
+  MODEL B: LightGBM — Full Feature Set (3,078)
+=======================================================
+              precision    recall  f1-score   support
+
+       Legit       1.00      1.00      1.00      1801
+        Mule       0.94      0.94      0.94        16
+
+    accuracy                           1.00      1817
+   macro avg       0.97      0.97      0.97      1817
+weighted avg       1.00      1.00      1.00      1817
+ROC AUC          : 0.99948
+PR  AUC          : 0.96391
+Best threshold   : 0.2
+Mule score range  : [0.027085, 0.999824]
+Legit score range : [0.000001, 0.639776]
+Decision margin  : -0.612691
